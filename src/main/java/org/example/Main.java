@@ -5,6 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
@@ -32,11 +36,13 @@ public class Main {
         //Add to Cart
         WebElement click2ndAddtoCart = driver.findElement(By.xpath("//button[@id='add-to-cart-sauce-labs-backpack']/following :: button[1]"));
         click2ndAddtoCart.click();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
 
         //can't solve this via preceding xpath.
-        /*WebElement clickfirstAddtoCart = driver.findElement(By.xpath("//button[@id='add-to-cart-sauce-labs-bike-light']/preceding :: button[3]"));
-        clickfirstAddtoCart.click();
+        /*WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebElement inputField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id='add-to-cart-sauce-labs-bike-light']/preceding :: button[3]")));
+        Thread.sleep(2000);
+
 
         WebElement clickfirstAddtoCart = driver.findElement(By.id("add-to-cart-sauce-labs-backpack"));
         clickfirstAddtoCart.click();*/
